@@ -6,17 +6,23 @@ public class FileIOTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-	Scanner input = new Scanner(System.in);
+	Scanner xinput = new Scanner(System.in);
 	System.out.println("Enter name of data file.");
-		String name = input.nextLine();
+		String name = xinput.nextLine();
 		
-	Scanner file = new Scanner(name);
+	Scanner input;
+	
+	try{
+	input = new Scanner(new File(name));
+	
 	int sum = 0;
-	while (file.hasNext()){
-		sum+=file.nextInt();
+	while (input.hasNextLine()){
+		sum+=input.nextInt();
 	}
 	System.out.println("Sum: "+sum);
 	
 	}
-
+	catch(Exception e){
+		
+	}
 }
